@@ -1,0 +1,42 @@
+<ng-container>
+    <form (ngSubmit)="submitData()" [formGroup]="allocatorForm" novalidate>
+        <h2 class="text-secondary" mat-dialog-title>Editar asignador</h2>
+        <mat-dialog-content>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Introduce la fecha inicio</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="date_ini">
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6 form-group">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Introduce la fecha fin</mat-label>
+                        <input matInput [matDatepicker]="picker1" formControlName="date_end">
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6 form-group">
+                    <label for="hour_ini">Hora inicio</label>
+                    <input type="time" class="form-control" formControlName="hour_ini">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="hour_end">Hora final</label>
+                    <input type="time" class="form-control" formControlName="hour_end">
+                </div>
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button class="btn btn-primary btn-block mt-3 mb-3" type="submit">
+                Guardar
+            </button>
+        </mat-dialog-actions>
+    </form>
+</ng-container>
