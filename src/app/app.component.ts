@@ -56,8 +56,6 @@ export class AppComponent implements OnInit {
         });
         return matchFilter.every(Boolean);
       }
-    }, () => {
-      this.dataSource = new MatTableDataSource<any>([]);
     });
   }
 

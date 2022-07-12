@@ -1,5 +1,4 @@
 <div class="container-fluid p-4">
-  <ng-container *ngIf="dataSource.data.length > 0; else noData">
     <div class="row">
       <div class="col-md-2">
         <mat-form-field class="w-100" appearance="outline">
@@ -88,10 +87,4 @@
       </table>
       <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
     </div>
-  </ng-container>
-  <ng-template #noData>
-    <div class="row w-100 text-center">
-      No hay datos, o no se han podido traer de la base de datos.
-    </div>
-  </ng-template>
 </div>
