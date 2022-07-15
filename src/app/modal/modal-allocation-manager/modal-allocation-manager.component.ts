@@ -2,7 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HandleAllocationService } from 'src/app/services/handle-allocation.service';
-import { DatePipe } from '@angular/common'
 
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
@@ -15,13 +14,13 @@ export interface IModalData {
 // Se crea un formato de fechas
 const MY_FORMATS = {
   parse: {
-    dateInput: 'DD/MM/YYYY',
+    dateInput: 'DD/MM/YY',
   },
   display: {
-    dateInput: 'DD/MM/YYYY',
-    monthYearLabel: 'MM YYYY',
+    dateInput: 'DD/MM/YY',
+    monthYearLabel: 'MM YY',
     dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MM YYYY',
+    monthYearA11yLabel: 'MM YY',
   },
 };
 
@@ -43,7 +42,6 @@ export class ModalAllocationManagerComponent implements OnInit {
     public dialogRef: MatDialogRef<ModalAllocationManagerComponent>,
     @Inject(MAT_DIALOG_DATA) public dialogData: IModalData,
     private _handleAllocationService: HandleAllocationService,
-    public datePipe: DatePipe
   ) {
     // Guardamos en modelData los datos enviados al modal.
     this.modelData = this.dialogData.modelData;
@@ -71,8 +69,8 @@ export class ModalAllocationManagerComponent implements OnInit {
     }
     const modelDataCopy:any = {
       row_id: this.modelData.ROWID,
-      fecha_ini: this.datePipe.transform(this.allocatorForm.get('date_ini')?.value, 'dd/MM/YY') || null,
-      fecha_fin: this.datePipe.transform(this.allocatorForm.get('date_end')?.value, 'dd/MM/YY')  || null,
+      fecha_ini: this.allocatorForm.get('date_ini')?.value || null,
+      fecha_fin: this.allocatorForm.get('date_end')?.value  || null,
       hora_ini: this.allocatorForm.get('hour_ini')?.value,
       hora_fin: this.allocatorForm.get('hour_end')?.value,
     }
