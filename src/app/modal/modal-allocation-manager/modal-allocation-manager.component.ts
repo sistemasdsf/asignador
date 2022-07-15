@@ -68,16 +68,11 @@ export class ModalAllocationManagerComponent implements OnInit {
       return;
     }
     const modelDataCopy:any = {
-      proceso: this.modelData.PROCESO,
+      row_id: this.modelData.ROWID,
       fecha_ini: this.allocatorForm.get('date_ini')?.value || null,
       fecha_fin: this.allocatorForm.get('date_end')?.value  || null,
-      ruta: this.modelData.RUTA || null,
-      tipo_pedido: this.modelData.p_type || null,
       hora_ini: this.allocatorForm.get('hour_ini')?.value,
       hora_fin: this.allocatorForm.get('hour_end')?.value,
-      festivo: this.modelData.FESTIVO || null,
-      prioridad: this.modelData.PRIORIDAD || null,
-      comentarios: this.modelData.COMENTARIOS || null,
     }
     this._handleAllocationService.updateItem(modelDataCopy).subscribe(() => {
       this._closeModal(true);
