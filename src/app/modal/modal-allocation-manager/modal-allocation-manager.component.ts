@@ -14,13 +14,13 @@ export interface IModalData {
 // Se crea un formato de fechas
 const MY_FORMATS = {
   parse: {
-    dateInput: 'DD/MM/YY',
+    dateInput: 'DD/MM/YYYY',
   },
   display: {
-    dateInput: 'DD/MM/YY',
-    monthYearLabel: 'MM YY',
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MM YYYY',
     dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MM YY',
+    monthYearA11yLabel: 'MM YYYY',
   },
 };
 
