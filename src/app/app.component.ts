@@ -42,9 +42,8 @@ export class AppComponent implements OnInit {
     // Llamada a la api a través de servicio para obtener los datos
     this._handleAllocationService.getItems().subscribe(data => {
       this.dataSource = new MatTableDataSource<any>(data);
-      // Añadimos paginador a los datos de la tabla y se ordenan por prioridad
+      // Añadimos paginador a los datos de la tabla
       this.dataSource.paginator = this.paginator;
-      this.dataSource.data.sort((a: any, b: any) => a.PRIORIDAD - b.PRIORIDAD);
       // Se cambia el filterPredicate para que se pueda filtrar por columna en lugar de filtrar por todos los campos de la tabla
       this.dataSource.filterPredicate = (data: any, filtersJson: string) => {
         const matchFilter: any[] = [];
