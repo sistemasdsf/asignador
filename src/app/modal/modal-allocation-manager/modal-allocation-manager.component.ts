@@ -14,7 +14,7 @@ export interface IModalData {
 // Se crea un formato de fechas
 const MY_FORMATS = {
   parse: {
-    dateInput: 'DD/MM/YYYY',
+    dateInput: 'DD/MM/YY',
   },
   display: {
     dateInput: 'DD/MM/YYYY',
