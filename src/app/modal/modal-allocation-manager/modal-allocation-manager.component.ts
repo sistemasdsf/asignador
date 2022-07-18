@@ -74,8 +74,14 @@ export class ModalAllocationManagerComponent implements OnInit {
       hora_ini: this.allocatorForm.get('hour_ini')?.value,
       hora_fin: this.allocatorForm.get('hour_end')?.value,
     }
-    this._handleAllocationService.updateItem(modelDataCopy).subscribe(() => {
-      this._closeModal(true);
+    this._handleAllocationService.updateItem(modelDataCopy).subscribe({
+      next: () => {
+        this._closeModal(true);
+      },
+      error: (e) => {
+        console.log(e);
+        this.dialogRef.close(e);
+      }
     })
   }
 

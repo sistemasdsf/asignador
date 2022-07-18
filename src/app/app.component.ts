@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { filter } from 'rxjs';
 import { IModalData, ModalAllocationManagerComponent } from './modal/modal-allocation-manager/modal-allocation-manager.component';
 import { HandleAllocationService } from './services/handle-allocation.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private _handleAllocationService: HandleAllocationService
+    private _handleAllocationService: HandleAllocationService,
+    private _snackBar: MatSnackBar
   ){}
   
   ngOnInit() {
@@ -98,6 +100,9 @@ export class AppComponent implements OnInit {
     dialogRef.afterClosed().pipe(
       filter(data => !!data)
     ).subscribe(data => {
+      if(data !== true) {
+        this._snackBar.open('No se ha podido conectar con la Base de Datos.', 'Cerrar');
+      }
       this.ngOnInit();
     });
   }

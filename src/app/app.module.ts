@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalAllocationManagerComponent } from './modal/modal-allocation-manager/modal-allocation-manager.component';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 
@@ -41,7 +42,8 @@ const materialModules = [
     ...materialModules,
     MatDialogModule,
     HttpClientModule,
-    ScrollingModule
+    ScrollingModule,
+    MatSnackBarModule
   ],
   providers: [
     {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}}
