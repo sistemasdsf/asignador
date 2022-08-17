@@ -18,15 +18,25 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { RouterModule } from '@angular/router';
+import { NoAccessComponentComponent } from './pages/no-access-component/no-access-component.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const materialModules = [
   MatIconModule
 ];
 
+const routes = [
+  {path: '', component: HomeComponent, canActivate: [AuthGuardService]},
+  {path: 'noAccess', component: NoAccessComponentComponent}
+]
+
 @NgModule({
   declarations: [
     AppComponent,
-    ModalAllocationManagerComponent
+    ModalAllocationManagerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +53,8 @@ const materialModules = [
     MatDialogModule,
     HttpClientModule,
     ScrollingModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [
     {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}}
