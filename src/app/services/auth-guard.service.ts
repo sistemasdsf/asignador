@@ -5,7 +5,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthGuardService implements CanActivate {
-  public allowedUsers: number[] = [2, 61, 62, 78, 63, 82, 102, 109, 108, 73];
+  public allowedUsers: number[] = [2, 68, 108, 109, 117, 137];
 
   constructor(
     private router: Router,
