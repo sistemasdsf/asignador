@@ -32,6 +32,15 @@
                     <input type="time" class="form-control" formControlName="hour_end">
                 </div>
             </div>
+            <div class="row">
+                <mat-form-field appearance="outline" class="disable-margin size-12">
+                    <mat-label>Festivo</mat-label>
+                    <mat-select formControlName="festives">
+                      <mat-option [value]="'Y'">Sí</mat-option>
+                      <mat-option [value]="'N'">No</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
         </mat-dialog-content>
         <mat-dialog-actions>
             <button class="btn btn-primary btn-block mt-3 mb-3" type="submit">

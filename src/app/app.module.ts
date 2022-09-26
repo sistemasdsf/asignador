@@ -22,6 +22,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { RouterModule } from '@angular/router';
 import { NoAccessComponentComponent } from './pages/no-access-component/no-access-component.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { MatSelectModule } from '@angular/material/select';
 
 const materialModules = [
   MatIconModule
@@ -54,6 +55,7 @@ const routes = [
     HttpClientModule,
     ScrollingModule,
     MatSnackBarModule,
+    MatSelectModule,
     RouterModule.forRoot(routes),
   ],
   providers: [

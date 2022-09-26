@@ -58,6 +58,7 @@ export class ModalAllocationManagerComponent implements OnInit {
       date_end: [item?.FECHA_FIN],
       hour_ini: [item?.HORA_INI, [Validators.required]],
       hour_end: [item?.HORA_FIN, [Validators.required]],
+      festives: [item?.FESTIVO]
     })
   }
 
@@ -73,6 +74,7 @@ export class ModalAllocationManagerComponent implements OnInit {
       fecha_fin: this.allocatorForm.get('date_end')?.value  || null,
       hora_ini: this.allocatorForm.get('hour_ini')?.value,
       hora_fin: this.allocatorForm.get('hour_end')?.value,
+      festives: this.allocatorForm.get('festives')?.value,
     }
     this._handleAllocationService.updateItem(modelDataCopy).subscribe({
       next: () => {
